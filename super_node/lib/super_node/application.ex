@@ -10,8 +10,11 @@ defmodule SuperNode.Application do
   """
 
   use Application
+  alias SuperNode.AutoCluster
 
   def start(_type, _args) do
+
+    IO.puts AutoCluster.visible_nodes()
     # List all child processes to be supervised
     topologies = Application.get_env(:libcluster, :topologies)
 

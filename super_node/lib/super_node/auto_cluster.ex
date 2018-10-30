@@ -38,12 +38,12 @@ defmodule SuperNode.AutoCluster do
   end
 
   def connect_node(node) do
-    IO.puts("Going to connect up node #{inspect(node)}...")
+    IO.puts("* * * * * Going to connect up node #{inspect(node)}...")
     :net_kernel.connect(node)
   end
 
   def disconnect_node(node) do
-    IO.puts("Going to disconnect node #{inspect(node)}...")
+    IO.puts("* * * * * Going to disconnect node #{inspect(node)}...")
     :net_kernel.disconnect(node)
   end
 
