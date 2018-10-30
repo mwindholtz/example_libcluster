@@ -5,5 +5,6 @@ if [[ $# -eq 0 ]] ; then
     exit 0
 fi
 
-export ERL_ZFLAGS=""
-iex --name node${1}@127.0.0.1 -S mix
+# export ERL_ZFLAGS=""
+
+iex --name node${1}  --cookie "secret"   -S mix 

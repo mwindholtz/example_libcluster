@@ -8,8 +8,11 @@ defmodule SuperNode.AutoCluster do
   iex --name node1@localhost -S mix
   iex --name node2@localhost -S mix
   epmd -names
-  ExploringElixir.AutoCluster.monitor()
-  ExploringElixir.AutoCluster.ping_node(:"node2@127.0.0.1")
+  SuperNode.AutoCluster.monitor()
+  SuperNode.AutoCluster.ping_node(:"node2@127.0.0.1")
+
+  SuperNode.AutoCluster.start()
+
   """
 
   def visible_nodes do
@@ -61,7 +64,7 @@ defmodule SuperNode.AutoCluster do
   def monitor(_), do: IO.puts("Already monitoring!")
 
   defp monitor_cluster do
-    ExploringElixir.AutoCluster.visible_nodes()
+    SuperNode.AutoCluster.visible_nodes()
 
     receive do
       {:nodeup, node} ->
