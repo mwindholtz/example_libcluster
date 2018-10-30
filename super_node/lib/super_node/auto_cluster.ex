@@ -1,4 +1,4 @@
-defmodule Vpp.AutoCluster do
+defmodule SuperNode.AutoCluster do
   @moduledoc """
 
   ref: https://www.youtube.com/watch?v=zQEgEnjuQsU
