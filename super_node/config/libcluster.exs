@@ -1,13 +1,16 @@
 use Mix.Config
 
 config :libcluster,
+  debug: true,
   topologies: [
-    exploring_elixir: [
-      strategy: Cluster.Strategy.Gossip,
-      # config: {},
-      connect: {ExploringElixir.AutoCluster, :connect_node, []},
-      disconnect: {ExploringElixir.AutoCluster, :disconnect_node, []}
-      # list_nodes: {:erlang, :nodes, [:connected]},
-      # child_spec: [restart: :transient]
+    the_universe: [
+      strategy: Elixir.Cluster.Strategy.Gossip,
+      config: [
+        port: 45892,
+        if_addr: "0.0.0.0",
+        multicast_addr: "230.1.1.251",
+        multicast_ttl: 1,
+        secret: "the_password"
+      ]
     ]
   ]

@@ -1,5 +1,6 @@
-defmodule ExploringElixir.AutoCluster do
+defmodule Vpp.AutoCluster do
   @moduledoc """
+
   ref: https://www.youtube.com/watch?v=zQEgEnjuQsU
   from: https://github.com/aseigo/exploring-elixir/blob/master/lib/exploring_elixir/e007/autocluster.ex
 
@@ -8,7 +9,7 @@ defmodule ExploringElixir.AutoCluster do
   iex --name node2@localhost -S mix
   epmd -names
   ExploringElixir.AutoCluster.monitor()
-  ExploringElixir.AutoCluster.ping_node(:node2)
+  ExploringElixir.AutoCluster.ping_node(:"node2@127.0.0.1")
   """
 
   def visible_nodes do

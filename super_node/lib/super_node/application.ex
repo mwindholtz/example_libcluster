@@ -1,15 +1,22 @@
 defmodule SuperNode.Application do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
-  @moduledoc false
+  @moduledoc """
+  ref: https://www.youtube.com/watch?v=zQEgEnjuQsU
+  from: https://github.com/aseigo/exploring-elixir/blob/master/lib/exploring_elixir/e007/autocluster.ex
+  CONSOLE:
+  ./run_node.sh 1
+  ./run_node.sh 2
+  ./run_node.sh 3
+  # will show output of =>  11:16:34.247 [debug] [libcluster:the_universe] heartbeat
+  """
 
   use Application
 
   def start(_type, _args) do
     # List all child processes to be supervised
+    topologies = Application.get_env(:libcluster, :topologies)
+
     children = [
-      # Starts a worker by calling: SuperNode.Worker.start_link(arg)
-      # {SuperNode.Worker, arg},
+      {Cluster.Supervisor, [topologies, [name: SuperNode.ClusterSupervisor]]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

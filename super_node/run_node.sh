@@ -6,4 +6,4 @@ if [[ $# -eq 0 ]] ; then
 fi
 
 export ERL_ZFLAGS=""
-iex --name ${1}@127.0.0.1 -S mix
+iex --name node${1}@127.0.0.1 -S mix
