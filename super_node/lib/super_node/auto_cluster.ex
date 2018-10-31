@@ -39,12 +39,12 @@ defmodule SuperNode.AutoCluster do
 
   def connect_node(node) do
     IO.puts("* * * * * Going to connect up node #{inspect(node)}...")
-    :net_kernel.connect(node)
+    true = :net_kernel.connect_node(node)
   end
 
   def disconnect_node(node) do
     IO.puts("* * * * * Going to disconnect node #{inspect(node)}...")
-    :net_kernel.disconnect(node)
+    true = :erlang.disconnect_node(node)
   end
 
   def monitor, do: monitor(Process.whereis(:cluster_monitor))

@@ -10,8 +10,8 @@ config :libcluster,
         multicast_addr: "224.0.0.1",
         multicast_ttl: 1,
         secret: "somepassword"
-      ],
-      connect: {SuperNode.AutoCluster, :connect_node, []},
-      disconnect: {SuperNode.AutoCluster, :disconnect_node, []}
+      ]
+      # connect: {SuperNode.AutoCluster, :connect_node, []},
+      # disconnect: {SuperNode.AutoCluster, :disconnect_node, []}
     ]
   ]
